@@ -8,6 +8,8 @@ public class Bot_Astar : MonoBehaviour
     private Noeud[] chemin;
     private int indexChemin = 0;
     public int score = 0;
+    public GameObject prefab;
+    GameObject obj;
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class Bot_Astar : MonoBehaviour
 
         // Générer un nœud d'arrivée aléatoire parmi les nœuds du graphe
         NoeudArrivee = ChoisirNoeudAleatoire();
+        obj = Instantiate(prefab, NoeudArrivee.transform.position, Quaternion.identity);
 
         // Utilisez A* pour trouver le chemin
         chemin = AStar.Instance.TrouverChemin(NoeudDepart, NoeudArrivee);
@@ -39,11 +42,13 @@ public class Bot_Astar : MonoBehaviour
         // Vérifiez si le bot a atteint la fin du chemin
         if (indexChemin >= chemin.Length)
         {
-
+            Destroy(obj);
             NoeudDepart = NoeudArrivee;
             NoeudArrivee = ChoisirNoeudAleatoire();
+            obj = Instantiate(prefab, NoeudArrivee.transform.position, Quaternion.identity);
             indexChemin = 0;
             chemin = AStar.Instance.TrouverChemin(NoeudDepart, NoeudArrivee);
+            score++;
         }
 
         // Déplacez le bot vers le prochain nœud dans le chemin

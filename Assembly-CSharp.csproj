@@ -62,7 +62,6 @@
     <Compile Include="Assets\Scripts\Dijkstra\Noeud.cs" />
     <Compile Include="Assets\Scripts\Astar\Astar.cs" />
     <Compile Include="Assets\Scripts\Astar\Bot_Astar.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Dijkstra\Dijkstra.cs" />
     <Compile Include="Assets\Scripts\Dijkstra\Bot.cs" />
   </ItemGroup>
