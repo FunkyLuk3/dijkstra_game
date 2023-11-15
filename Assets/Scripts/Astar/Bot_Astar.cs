@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bot_Astar : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Bot_Astar : MonoBehaviour
     public int score = 0;
     public GameObject prefab;
     GameObject obj;
+    public Text score_txt;
+
 
     void Start()
     {
@@ -39,6 +42,8 @@ public class Bot_Astar : MonoBehaviour
 
     void Update()
     {
+        score_txt.text = "Score A* : " + score;
+
         // Vérifiez si le bot a atteint la fin du chemin
         if (indexChemin >= chemin.Length)
         {

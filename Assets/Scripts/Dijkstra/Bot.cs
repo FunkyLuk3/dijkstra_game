@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Bot : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Bot : MonoBehaviour
     public int score = 0;
     public GameObject prefab;
     GameObject obj;
+    public Text score_txt;
 
     void Start()
     {
@@ -41,9 +43,11 @@ public class Bot : MonoBehaviour
 
     void Update()
     {
+        score_txt.text = "Score Dijkstra : " + score;
         // Vérifiez si le bot a atteint la fin du chemin
         if (indexChemin >= chemin.Length)
         {
+            
             Destroy(obj);
             NoeudDepart = NoeudArrivee;
             NoeudArrivee = ChoisirNoeudAleatoire();
